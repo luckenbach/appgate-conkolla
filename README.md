@@ -25,7 +25,8 @@ docker run -p 4433:4433 mar8x/conkolla:latest
 ```
 
 ### Run conkolla
-By default conkolla serves on `https://localhos:4433`. Different serving options are available, check with `conkolla -h` for more information.
+By default conkolla serves on `https://localhost:4433`. Different serving options are available, check with `conkolla --h` for more information.
+Keep the window in the background, it will reveal a good part of the interactions between client - conkolla - controller, and can be useful to follow the requests & responses, and payloads.
 
 #### Windows
 Open a cmd line or powershell, then type `conkolla.exe`. 
@@ -39,7 +40,7 @@ $ ./conkolla
 ```shell
 $ docker run -p 4433:4433 mar8x/conkolla:latest
 ```
-*Example output:*
+*you will see a start message, something like this:*
 ```shell
 bash-3.2$ ./conkolla
 {
@@ -75,6 +76,16 @@ bash-3.2$ ./conkolla
     ]
 }
 ```
+
+### Connect to a controller
+#### Web UI
+* Open a browser and point to the url (look for "url" in start message) 
+* Default is [https://localhost:4433/login/](https://localhost:4433/login/)
+* Allow the exception for the self signed cert when using TLS (recommended)
+
+
+
+
 
 
 
