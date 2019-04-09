@@ -96,7 +96,48 @@ Fill the form, use the defaults if unsure.
 
 ### Connect with an application, example curl
 
+```shell
+password=secretsauce
+apiVersion=9
+label=dev
 
+curl -s -H "Accept: application/json" -X POST \
+     -kL https://localhost:4433/login --data \
+     "{\"username\":\"admin\",\"password\":\"${password}\",\
+      \"controllerURL\":\"${host}\",\"apiVersion\":${apiVersion},\
+      \"skipVerifySSL\":\"true\",\"label\":\"${label}\"}"
+```
+
+Response:
+```json
+ {
+  "EntitlementTokenExpires": "2019-04-10T10:24:31.246Z",
+  "authBody": {
+    "machineId": "0e9076cd-e09e-4db7-6d24-480196700a42",
+    "providerName": "local",
+    "username": "admin",
+    "password": ""
+  },
+  "connectionID": "1",
+  "loginParameters": {
+    "controllerURL": "cc1.packnot.com",
+    "controllerPort": 444,
+    "username": "admin",
+    "password": "removed",
+    "otp": "",
+    "providerName": "local",
+    "apiVersion": 9,
+    "acceptHeaderSuffix": "+json",
+    "contentTypeHeader": "application/json",
+    "label": "lab",
+    "machineId": "0e9076cd-e09e-4db7-6d24-480196700a42",
+    "hideToken": "",
+    "skipVerifySSL": "true",
+    "dumpAGResponse": "",
+    "autoTokenRenewal": ""
+  },
+  "message": "Successfully connected."
+```
 
 
 
