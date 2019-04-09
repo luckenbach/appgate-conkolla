@@ -78,7 +78,7 @@ bash-3.2$ ./conkolla
 ```
 
 ### Connect to a controller
-At this stage you will need to have a user with admin permiossion and the proper privileges to read or write AppGate objects. For more information read:
+At this stage you will need to have a user with admin permission and privileges to read or write AppGate objects. For more information read:
 * [SDP Help > rest api](https://sdphelp.cyxtera.com/adminguide/v4.2/rest-apis.html)
 
 Make sure you know where conkolla is serving:
@@ -90,11 +90,11 @@ Make sure you know where conkolla is serving:
 * Default is [https://localhost:4433/login/](https://localhost:4433/login/)
 * Allow the exception for the self signed cert when using TLS (recommended)
 
-Fill the form, use the defaults if unsure.
+Fill the form, use or follow the defaults if unsure.
 
 ![login form](https://github.com/Cyxtera/appgate-conkolla/blob/gh-pages/login.png)
 
-### Connect with an application, example curl
+#### Connect with an application, example curl
 
 ```shell
 controllerURL=cc1.packnot.com
@@ -109,7 +109,7 @@ curl -s -H "Accept: application/json" -X POST \
       \"skipVerifySSL\":\"true\",\"label\":\"${label}\"}"
 ```
 
-Response:
+Response example:
 ```json
  {
   "EntitlementTokenExpires": "2019-04-10T10:24:31.246Z",
@@ -140,6 +140,27 @@ Response:
   "message": "Successfully connected."
 ```
 
+### Crafting REST calls via Conkolla
+#### Rest calls to an AppGate controller
+Rest calls torwards an AppGate controller are in the form of:
+* https://{URL}:{PORT}/admin/{RESOURCE|PATH}
+where as:
+* URL is the controllers URL
+* PORT: the port of the admin access, default is `444`
+* RESOURCE|PATH: the actual rest resource
+Example: 
+* `https://cc1.packnot.com:444/admin/stats/appliances`
+
+#### Rest calls via conkolla
+In conkolla you reference a call to a connection, a connection which you previously logged into. Fro example for the same rest call as in the above example, you would to in the UI:
+* `https://localhost:4433/get/1/stats/appliances`
+or
+* `https://localhost:4433/get/ctl9.packnot.com/stats/appliances`
+**Note: you need to drop the `/admin` part of the path.** Do not specify the `/admin` part in the path for the rest call. Conkolla adds it automatically.
+
+Every connection has two references which can be used in conkolla proxying calls, either 
+* a numeric `ID` assigned by conkolla at login time,  
+* or the combined string of `{controllerURL}{label}`
 
 
 
