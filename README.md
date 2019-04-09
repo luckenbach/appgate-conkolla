@@ -227,7 +227,7 @@ Note that the form data and the JSON data render to the same attributes and some
 |acceptHeaderSuffix|`+json` or `+gpg`| Default +json, +gpg is used for downloading backup files. You can change it after login.|
 |apiVersion|Integer:number|specifies what AppGate API version to indicate in the upstream headers, usually defaults ok.You can change it after login. |
 |machineID|String:UUIDv4| A UUIDv4 string to identify Conkolla as a client ID torwards AppGate Controller. None or faulty given, Conkolla generates a random one.|
-|hideToken|String:`"yes"` or `""`| Allows to disable that the token for the AppGate connection is ever displayed or retrievable|
+|hideToken|String:`"yes"` or `""`| Disables any display/retrieval of the token for the AppGate connection for security reasons.|
 |dumpAGResponse|String:`"yes"` or `""`| Conkolla will log the the request and response send to the upstream server. Good for debugging or curious people.|
 |autoTokenRenewal|String:`"yes"` or `""`| Conkolla will renew the token if it will expire in less than 5 minutes from now. Also, you will be able to force renewal of tokens by the `/renewtoken`call (see below). Auto Renew does not work when using MFA.|
 
