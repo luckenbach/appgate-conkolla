@@ -173,7 +173,7 @@ Proxying API to a connected controller connection follows the scheme:
 * `{https|http}://host:port/{httpMethod}/{connection}/{rest} :: {BODY}`
 
 `httpMethod`
-* GET|POST|PUT|DELETE
+* GET, POST, PUT, DELETE
 
 `connection`: every connection has two references which can be used in conkolla proxying calls, either 
 * a numeric `ID` assigned by conkolla at login time,  
