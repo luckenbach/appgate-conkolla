@@ -158,12 +158,58 @@ In conkolla you reference a call to a connection, a connection which you previou
 * `https://localhost:4433/get/1/stats/appliances`
 * `https://localhost:4433/get/ctl9.packnot.comdev/stats/appliances`
 
-**Note: you need to drop the `/admin` part of the path.** Do not specify the `/admin` part in the path for the rest call. Conkolla adds it automatically.
+From the command line:
+```shell
+$ curl -k -H "Accept: application/json" https://localhost:4433/get/1/appliances|jq
+```
 
-Every connection has two references which can be used in conkolla proxying calls, either 
+**Note: you need to drop the `/admin` part of the path.** Do not specify the `/admin` part in the path for the rest call. Conkolla adds it automatically on the upstream call.
+
+Use also the [conkolla > help page](https://localhost:444/help.html) for your conkolla help.
+
+# Conkolla internals
+## Proxying scheme
+Proxying API to a connected controller connection follows the scheme:
+* `{https|http}://host:port/{httpMethod}/{connection}/{rest} :: {BODY}`
+
+`httpMethod`
+* GET|POST|PUT|DELETE
+
+`connection`: every connection has two references which can be used in conkolla proxying calls, either 
 * a numeric `ID` assigned by conkolla at login time,  
-* or the combined string of `{controllerURL}{label}`
+* or the combined string of `{controllerURL}{label}`.
 
+`rest`
+* AppGate API path|resource, without the `/admin` in the path.
+
+`BODY`
+* JSON encoded payload
+
+
+## Conkolla API calls
+
+### Globals
+
+| Path        | Method           | Description  |
+| ------------- |:-------------:| -----|
+|`/settings`    | GET | Displays conkolla and runtime information.  |
+|`/login` | POST GET | Login form, login JSON params, do login on a controller-|
+|`/apispec` | GET | Displays the on-board apispec (might be outdated, use the linked from the menu for reference).|
+
+### Connection specific
+| Path        | Method           | Description  |
+| ------------- |:-------------:| -----|
+|`/agc/{connection}/conf`|GET POST| Display, change the connection settings for a controller.|
+|`/agc/{connection}/headers`|GET|Download a file containing the headers for upstream calls for this connection |
+|`/agc/{connection}/renewtoken`|GET| Renews the user and entitlement token for this connection. Only supported if no MFA is used and connection is set to 'Auto renew tokens' at login time.
+
+
+### Operations specific
+| Path        | Method           | Description  |
+| ------------- |:-------------:| -----|
+|`/stats/{connection\|0}/{label}`|GET|Retrieves stats from connected controller(s). Displaying single stats: `/stats/{connection}/`, where connection is a reference for the connection. Display stats of all connected controllers: `/stats/0/`. Display the stats for a certain label: `/stats/0/{label}`.|
+|`/revoke/{0\|connection}`/{label}|GET|Revokes the tokens for the conneciton. Revoking single connection: `/revoke/{connection}/`, where connection is a reference for the connection. Revoke all connected controllers: `/revoke/0/`. Revoke for all controllers under a certain label: `/revoke/0/{label}`.|
+|`/forget/{0\|connection}/{label}`|GET|Revokes and removes the connection. Revoking & remove single connection: `/revoke/{connection}/`, where connection is a reference for the connection. Revoke & remove all connected controllers: `/revoke/0/`. Revoke & remove for all controllers under a certain label: `/revoke/0/{label}`.|
 
 
 
