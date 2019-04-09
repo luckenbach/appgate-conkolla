@@ -179,10 +179,13 @@ In Conkolla you reference a call to a connection, a connection which you previou
 
 From the command line:
 ```shell
-$ curl -k -H "Accept: application/json" https://localhost:4433/get/1/appliances
+$ curl -k -X POST -H "Accept: application/json" https://localhost:4433/get/1/appliances
 ```
 
+Use always method POST for the proxy call. The upstream HTTP method is included in the proxy call's path.
+
 **Note: you need to drop the `/admin` part of the path.** Do not specify the `/admin` part in the path for the rest call. Conkolla adds it automatically on the upstream call.
+
 
 Use also the [Conkolla > help page](https://localhost:444/help.html) for your Conkolla help.
 
@@ -250,7 +253,11 @@ Proxy API to a connected Controller connection follows the scheme:
 * AppGate API path/resource, without the `/admin` in the path.
 
 `BODY`
-* JSON encoded payload
+* JSON encoded payload if any
+
+`Proxy Method`: Always use `POST` (this covers all upstream calls which are embedded in the proxy rest call).
+
+
 
 
 
