@@ -273,7 +273,7 @@ These are related to the AppGate connection and might do rest calls to upstream 
 |`/agc/{connection}/conf`|GET POST| Display, change the connection settings for a Controller.|
 |`/agc/{connection}/headers`|GET|Download a file containing the headers for upstream calls for this connection |
 |`/agc/{connection}/renewtoken`|GET| Renews the user and entitlement token for this connection. Only supported if no MFA is used and connection is set to 'Auto renew tokens' at login time.|
-
+Note: `/renewtoken` is currently controlled via a `GET` whereas it would be more reasonable with a `PUT`--  this might change in the future.
 
 ### Operations specific
 Note these calls will always do rest calls to upstream AppGate Controllers.
@@ -284,6 +284,7 @@ Note these calls will always do rest calls to upstream AppGate Controllers.
 |`/revoke/{connection}/{label}`|GET|Revokes the tokens for the connection. Revoking single connection: `/revoke/{connection}/`, where connection is a reference for the connection. Revoke all connected Controllers: `/revoke/0/`. Revoke for all Controllers under a certain label: `/revoke/0/{label}`.|
 |`/forget/{connection}/{label}`|GET|Revokes and removes the connection. Revoking & remove single connection: `/revoke/{connection}/`, where connection is a reference for the connection. Revoke & remove all connected Controllers: `/revoke/0/`. Revoke & remove for all Controllers under a certain label: `/revoke/0/{label}`.|
 
+Note: the `/stats`, `/revoke` and `/forget` are not typical rest resources and will operate on one or many connections. For now we use method `GET` while this might change in the future.
 
 
 
