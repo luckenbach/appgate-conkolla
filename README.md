@@ -14,7 +14,14 @@ However while the CRE team has been working with integrations and different use 
 * Simply administrate your AppGate through it.
 
 ## Quick start
-Conkolla runs as an executable and is available from macOS, Windows and linux:
+Conkolla runs as an executable and is available from macOS, Windows and linux. Download the binaries from the latest release:
+* https://github.com/Cyxtera/appgate-conkolla/releases/latest
+
+Or for docker:
+```cmd
+docker pull mar8x/conkolla:latest
+docker run -p 4433:4433 mar8x/conkolla:latest
+```
 
 
 
