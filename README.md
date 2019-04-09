@@ -19,6 +19,15 @@ However, with conkolla you get another option to choose from.
 
 
 # Quick start
+Conkolla can be seen as a proxy, sitting between the user and the AppGate Controller:
+![login form](/arch.png)
+
+The user will basically to the following steps when using conkolla:
+1. Launch conkolla.
+2. Loginto a AppGate Controller through conkolla. 
+3. Use the the new connection in conkolla to run rest calls against the connected controller.
+
+
 ## Get conkolla
 Conkolla (64bit) runs on macOS, Windows and linux. Download the binaries:
 * [Conkolla latest release](https://github.com/Cyxtera/appgate-conkolla/releases/latest)
