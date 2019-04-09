@@ -1,6 +1,6 @@
 Conkolla is a HTTP API Gateway (aka proxy) for interacting with the AppGate API. The name is a portmanteau for `Controller` and `kolla`, translated from a discovered rune stone in Gothenburg in Sweden meaning: "to look at the controller".
 
-# History has value
+# History
 While we, the Customer Reliability Team, has been working with various integrations projects which involved APpGate API we learned that a tool would be handy to rapid prototyping. Eventually this tool became more feature rich and and we start to believe this will also be a useful tool for anyone working with AppGate SDP integrations. 
 
 From an educational standpoint, conkolla allows you to:
@@ -174,16 +174,16 @@ Use also the [conkolla > help page](https://localhost:444/help.html) for your co
 # Conkolla internals
 ## Proxying scheme
 Proxying API to a connected controller connection follows the scheme:
-* `{https or http}://host:port/{httpMethod}/{connection}/{rest} :: {BODY}`
+* `{HTTPS or HTTP}://{HOST}:{PORT}{HTTP METHOD}/{CONNECTION}/{UPSTREAM RESTCALL} :: {BODY}`
 
-`httpMethod`
+`HTTP METHOD`
 * GET, POST, PUT, DELETE
 
-`connection`: every connection has two references which can be used in conkolla proxying calls, either 
+`CONNECTION`: every connection has two references which can be used in conkolla proxying calls, either 
 * a numeric `ID` assigned by conkolla at login time,  
 * or the combined string of `{controllerURL}{label}`.
 
-`rest`
+`UPSTREAM RESTCALL`
 * AppGate API path/resource, without the `/admin` in the path.
 
 `BODY`
