@@ -156,7 +156,7 @@ Example:
 ### Rest calls via conkolla
 In conkolla you reference a call to a connection, a connection which you previously logged into. Fro example for the same rest call as in the above example, you would use one of the following in the UI:
 * `https://localhost:4433/get/1/stats/appliances`
-* `https://localhost:4433/get/ctl9.packnot.comdev/stats/appliances`
+* `https://localhost:4433/get/cc1.packnot.comdev/stats/appliances`
 
 From the command line:
 ```shell
