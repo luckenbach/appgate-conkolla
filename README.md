@@ -22,7 +22,7 @@ However, with conkolla you get another option to choose from.
 Conkolla can be seen as a proxy, sitting between the user and the AppGate Controller:
 ![login form](/arch.png)
 
-The user will basically to the following steps when using conkolla:
+The user will basically do the following steps when using conkolla:
 1. Launch conkolla.
 2. Loginto a AppGate Controller through conkolla. 
 3. Use the the new connection in conkolla to run rest calls against the connected controller.
@@ -167,6 +167,12 @@ Example:
 * `https://cc1.packnot.com:444/admin/stats/appliances`
 
 ### Rest calls via conkolla
+Note the seperation of the different calls:
+* From user to conkolla: `proxy call`
+* From conkolla to controller: `upstream call`
+
+The first one is what the user will use to make calls, where the second is always initiated by conkolla.
+
 In conkolla you reference a call to a connection, a connection which you previously logged into. Fro example for the same rest call as in the above example, you would use one of the following in the UI:
 * `https://localhost:4433/get/1/stats/appliances`
 * `https://localhost:4433/get/cc1.packnot.comdev/stats/appliances`
@@ -184,8 +190,7 @@ Use also the [conkolla > help page](https://localhost:444/help.html) for your co
 
 # Conkolla internals
 
-client -- conkolla --- controller
-## Proxying scheme
+## Proxying scheme (proxy call)
 Proxying API to a connected controller connection follows the scheme:
 * `{HTTPS or HTTP}://{HOST}:{PORT}{UPSTREAM HTTP METHOD}/{CONNECTION}/{UPSTREAM RESTCALL} :: {BODY}`
 
@@ -207,7 +212,7 @@ Proxying API to a connected controller connection follows the scheme:
 
 ## Conkolla API calls
 
-### Globals
+### Global
 
 | Path        | Method           | Description  |
 | ------------- |:-------------:| -----|
@@ -215,7 +220,8 @@ Proxying API to a connected controller connection follows the scheme:
 |`/login` | POST GET | Login form, login JSON params, do login on a controller.|
 |`/apispec` | GET | Displays the on-board apispec (might be outdated, use the linked from the menu for reference).|
 
-### Connection specific
+### Connection specific 
+These are related to the appgate connection and might do rest calls to upstream AppGate Controllers.
 
 | Path        | Method           | Description  |
 | ------------- |:-------------:| -----|
@@ -225,6 +231,7 @@ Proxying API to a connected controller connection follows the scheme:
 
 
 ### Operations specific
+Note these calls will always do rest calls to upstream AppGate Controllers.
 
 | Path        | Method           | Description  |
 | ------------- |:-------------:| -----|
