@@ -95,7 +95,6 @@ Make sure you know where conkolla is serving:
 * Default is [https://localhost:4433/login/](https://localhost:4433/login/)
 * Allow the exception for the self signed cert when using TLS (recommended)
 
-Fill the form, use or follow the defaults if unsure.
 
 ![login form](/login.png)
 
@@ -172,12 +171,16 @@ $ curl -k -H "Accept: application/json" https://localhost:4433/get/1/appliances
 
 Use also the [conkolla > help page](https://localhost:444/help.html) for your conkolla help.
 
+
+
 # Conkolla internals
+
+client -- conkolla --- controller
 ## Proxying scheme
 Proxying API to a connected controller connection follows the scheme:
-* `{HTTPS or HTTP}://{HOST}:{PORT}{HTTP METHOD}/{CONNECTION}/{UPSTREAM RESTCALL} :: {BODY}`
+* `{HTTPS or HTTP}://{HOST}:{PORT}{UPSTREAM HTTP METHOD}/{CONNECTION}/{UPSTREAM RESTCALL} :: {BODY}`
 
-`HTTP METHOD`
+`UPSTREAM HTTP METHOD` The method to be used in the upstream rest call:
 * GET, POST, PUT, DELETE
 
 `CONNECTION`: every connection has two references which can be used in conkolla proxying calls, either 
@@ -189,6 +192,8 @@ Proxying API to a connected controller connection follows the scheme:
 
 `BODY`
 * JSON encoded payload
+
+
 
 
 ## Conkolla API calls
