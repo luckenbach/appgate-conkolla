@@ -15,8 +15,8 @@ However while the CRE team has been working with integrations and different use 
 
 # Quick start
 ## Get conkolla
-Conkolla (64bit) runs on macOS, Windows and linux. Download the binaries from the latest release:
-* [the latest release](https://github.com/Cyxtera/appgate-conkolla/releases/latest)
+Conkolla (64bit) runs on macOS, Windows and linux. Download the binaries:
+* [Conkolla latest release](https://github.com/Cyxtera/appgate-conkolla/releases/latest)
 
 Or for docker:
 ```shell
@@ -170,7 +170,7 @@ Use also the [conkolla > help page](https://localhost:444/help.html) for your co
 # Conkolla internals
 ## Proxying scheme
 Proxying API to a connected controller connection follows the scheme:
-* `{https|http}://host:port/{httpMethod}/{connection}/{rest} :: {BODY}`
+* `{https\|http}://host:port/{httpMethod}/{connection}/{rest} :: {BODY}`
 
 `httpMethod`
 * GET, POST, PUT, DELETE
