@@ -143,12 +143,12 @@ Response example:
 ## Crafting REST calls via Conkolla
 ### Rest calls to an AppGate controller
 Rest calls torwards an AppGate controller are in the form of:
-* `https://{URL}:{PORT}/admin/{RESOURCE|PATH}`
+* `https://{URL}:{PORT}/admin/{RESOURCE or PATH}`
 
 where as:
 * `URL` is the controllers URL
 * `PORT`: the port of the admin access, default is `444`
-* `RESOURCE|PATH`: the actual rest resource
+* `RESOURCE or PATH`: the actual rest resource
 
 Example: 
 * `https://cc1.packnot.com:444/admin/stats/appliances`
@@ -160,7 +160,7 @@ In conkolla you reference a call to a connection, a connection which you previou
 
 From the command line:
 ```shell
-$ curl -k -H "Accept: application/json" https://localhost:4433/get/1/appliances|jq
+$ curl -k -H "Accept: application/json" https://localhost:4433/get/1/appliances
 ```
 
 **Note: you need to drop the `/admin` part of the path.** Do not specify the `/admin` part in the path for the rest call. Conkolla adds it automatically on the upstream call.
@@ -193,7 +193,7 @@ Proxying API to a connected controller connection follows the scheme:
 | Path        | Method           | Description  |
 | ------------- |:-------------:| -----|
 |`/settings`    | GET | Displays conkolla and runtime information.  |
-|`/login` | POST GET | Login form, login JSON params, do login on a controller-|
+|`/login` | POST GET | Login form, login JSON params, do login on a controller.|
 |`/apispec` | GET | Displays the on-board apispec (might be outdated, use the linked from the menu for reference).|
 
 ### Connection specific
@@ -208,7 +208,7 @@ Proxying API to a connected controller connection follows the scheme:
 | Path        | Method           | Description  |
 | ------------- |:-------------:| -----|
 |`/stats/{connection OR 0}/{label}`|GET|Retrieves stats from connected controller(s). Displaying single stats: `/stats/{connection}/`, where connection is a reference for the connection. Display stats of all connected controllers: `/stats/0/`. Display the stats for a certain label: `/stats/0/{label}`.|
-|`/revoke/{connection OR 0}`/{label}|GET|Revokes the tokens for the conneciton. Revoking single connection: `/revoke/{connection}/`, where connection is a reference for the connection. Revoke all connected controllers: `/revoke/0/`. Revoke for all controllers under a certain label: `/revoke/0/{label}`.|
+|`/revoke/{connection OR 0}/{label}`|GET|Revokes the tokens for the conneciton. Revoking single connection: `/revoke/{connection}/`, where connection is a reference for the connection. Revoke all connected controllers: `/revoke/0/`. Revoke for all controllers under a certain label: `/revoke/0/{label}`.|
 |`/forget/{connection OR 0}/{label}`|GET|Revokes and removes the connection. Revoking & remove single connection: `/revoke/{connection}/`, where connection is a reference for the connection. Revoke & remove all connected controllers: `/revoke/0/`. Revoke & remove for all controllers under a certain label: `/revoke/0/{label}`.|
 
 
