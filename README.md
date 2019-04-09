@@ -25,14 +25,21 @@ docker run -p 4433:4433 mar8x/conkolla:latest
 ```
 
 ### Run conkolla
+By default conkolla serves on `https://localhos:4433`. Different serving options are available, check with `conkolla -h` for more information.
+
 #### Windows
+Open a cmd line or powershell, then type `conkolla.exe`. 
 
 #### Linux & macOS
 ```shell
 $ chmod +x conkolla
 $ ./conkolla
 ```
-Example output:
+#### Docker
+```shell
+$ docker run -p 4433:4433 mar8x/conkolla:latest
+```
+*Example output:*
 ```shell
 bash-3.2$ ./conkolla
 {
