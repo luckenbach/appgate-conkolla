@@ -186,6 +186,52 @@ $ curl -k -H "Accept: application/json" https://localhost:4433/get/1/appliances
 
 Use also the [conkolla > help page](https://localhost:444/help.html) for your conkolla help.
 
+# AppGatea connection specifics
+## Login options and controls
+Either you browse the login form from the UI or get the possible options/fields from a rest call. Note there might be more options from the rest call than on the web login form:
+```shell
+curl -k -H "Accept: application/json" https://localhost:4433/login/
+```
+```json
+{
+  "accept_header_suffix": "+json",
+  "api_version": 9,
+  "content_type_header": "application/json",
+  "loginFormFields": {
+    "controllerURL": "",
+    "controllerPort": 0,
+    "username": "",
+    "password": "",
+    "otp": "",
+    "providerName": "",
+    "apiVersion": 0,
+    "acceptHeaderSuffix": "",
+    "contentTypeHeader": "",
+    "label": "",
+    "machineId": "",
+    "hideToken": "",
+    "skipVerifySSL": "",
+    "dumpAGResponse": "",
+    "autoTokenRenewal": ""
+  },
+  "pageinfo": "login page"
+}
+```
+Note that the form data and the JSON data render to the same attributes and some boolean values might be therefore treated as a non-empty value instead as real booleans. Absence signifies `false`where presence of any value signifies `true`
+
+Here we highlight some of the more advanced controls
+
+| Param        | Value  hideToken         | Description  |
+| ------------- |:-------------:| -----|
+|label|String:free text|Labels a connection with the given text. Allows you to connect many times to same AppGate Controller under different label. Any space will be replaced with `+`.|
+|otp|String:number|if the user account uses MFA, enter the next MFA code here. Supports only built-in MFA.|
+|acceptHeaderSuffix|`+json` or `+gpg`| Default +json, +gpg is used for downloading backup files. You can change it after login.|
+|apiVersion|Integer:number|specifies what AppGate API version to indicate in the upstream headers, usually defaults ok.You can change it after login. |
+|machineID|String:UUIDv4| A UUIDv4 string to identify conkolla as a client ID torwards AppGate Controller. None or faulty given, conkolla generates a random one.|
+|hideToken|String:`"yes"` or `""` (absent)| Allows to disable that the token for the AppGate connection is ever displayed or retrievable|
+|dumpAGResponse|String:`"yes"` or `""` (absent)| Conkolla will log the the request and response send to the upstream server. Good for debugging or curious people.|
+|autoTokenRenewal|String:`"yes"` or `""` (absent)| Conkolla will renew the token if it will expire in less than 5 minutes from now. ALso, you will be able to force renewal of tokens by the `/renewtoken`call (see below). Auto Renew does not work when using MFA.|
+
 
 
 # Conkolla internals
