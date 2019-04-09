@@ -130,7 +130,7 @@ Response example:
     "apiVersion": 9,
     "acceptHeaderSuffix": "+json",
     "contentTypeHeader": "application/json",
-    "label": "lab",
+    "label": "dev",
     "machineId": "0e9076cd-e09e-4db7-6d24-480196700a42",
     "hideToken": "",
     "skipVerifySSL": "true",
@@ -143,19 +143,19 @@ Response example:
 ### Crafting REST calls via Conkolla
 #### Rest calls to an AppGate controller
 Rest calls torwards an AppGate controller are in the form of:
-* https://{URL}:{PORT}/admin/{RESOURCE|PATH}
+* ```https://{URL}:{PORT}/admin/{RESOURCE|PATH}```
 where as:
-* URL is the controllers URL
-* PORT: the port of the admin access, default is `444`
-* RESOURCE|PATH: the actual rest resource
+* `URL` is the controllers URL
+* `PORT`: the port of the admin access, default is `444`
+* `RESOURCE|PATH`: the actual rest resource
 Example: 
 * `https://cc1.packnot.com:444/admin/stats/appliances`
 
 #### Rest calls via conkolla
-In conkolla you reference a call to a connection, a connection which you previously logged into. Fro example for the same rest call as in the above example, you would to in the UI:
+In conkolla you reference a call to a connection, a connection which you previously logged into. Fro example for the same rest call as in the above example, you would use one of the following in the UI:
 * `https://localhost:4433/get/1/stats/appliances`
-or
-* `https://localhost:4433/get/ctl9.packnot.com/stats/appliances`
+* `https://localhost:4433/get/ctl9.packnot.comdev/stats/appliances`
+
 **Note: you need to drop the `/admin` part of the path.** Do not specify the `/admin` part in the path for the rest call. Conkolla adds it automatically.
 
 Every connection has two references which can be used in conkolla proxying calls, either 
