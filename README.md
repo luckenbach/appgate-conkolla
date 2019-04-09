@@ -180,7 +180,7 @@ Proxying API to a connected controller connection follows the scheme:
 * or the combined string of `{controllerURL}{label}`.
 
 `rest`
-* AppGate API path|resource, without the `/admin` in the path.
+* AppGate API path/resource, without the `/admin` in the path.
 
 `BODY`
 * JSON encoded payload
