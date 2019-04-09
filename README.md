@@ -272,7 +272,7 @@ Proxy API to a connected Controller connection follows the scheme:
 |`/login` | POST GET | Login form, login JSON params, do login on a Controller.|
 |`/apispec` | GET | Displays the on-board apispec (might be outdated, use the linked from the menu for reference).|
 
-### Connection specific 
+### Connection  
 These are related to the AppGate connection and might do rest calls to upstream AppGate Controllers.
 
 | Path        | Method           | Description  |
@@ -280,6 +280,7 @@ These are related to the AppGate connection and might do rest calls to upstream 
 |`/agc/{connection}/conf`|GET POST| Display, change the connection settings for a Controller.|
 |`/agc/{connection}/headers`|GET|Download a file containing the headers for upstream calls for this connection |
 |`/agc/{connection}/renewtoken`|GET| Renews the user and entitlement token for this connection. Only supported if no MFA is used and connection is set to 'Auto renew tokens' at login time.|
+
 Note: `/renewtoken` is currently controlled via a `GET` whereas it would be more reasonable with a `PUT`--  this might change in the future.
 
 ### Operations specific
