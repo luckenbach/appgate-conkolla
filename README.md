@@ -1,6 +1,6 @@
 Conkolla is a HTTP API Gateway (aka proxy) for interacting with the AppGate API. The name is a portmanteau for `Controller` and `kolla`, translated from a discovered rune stone in Gothenburg in Sweden meaning: "to look at the controller".
 
-# Introcuction
+# Introduction
 The AppGate API can be learned and discovered in different ways. One of the common ways is to use the developer tools in a web browser while browsing through the AppGate admin UI or use existing tools such as postman or prism. 
 
 However while the CRE team has been working with integrations and different use cases we continously build on a utility which eventually become the API Gateway, and we believe this can be useful for the community working woth AppGate outside the company. From an educational standpoint it allows you to:
