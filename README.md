@@ -97,6 +97,7 @@ Fill the form, use the defaults if unsure.
 ### Connect with an application, example curl
 
 ```shell
+controllerURL=cc1.packnot.com
 password=secretsauce
 apiVersion=9
 label=dev
@@ -104,7 +105,7 @@ label=dev
 curl -s -H "Accept: application/json" -X POST \
      -kL https://localhost:4433/login --data \
      "{\"username\":\"admin\",\"password\":\"${password}\",\
-      \"controllerURL\":\"${host}\",\"apiVersion\":${apiVersion},\
+      \"controllerURL\":\"${controllerURL}\",\"apiVersion\":${apiVersion},\
       \"skipVerifySSL\":\"true\",\"label\":\"${label}\"}"
 ```
 
