@@ -1,6 +1,6 @@
 Conkolla is a HTTP API Gateway (aka proxy) for interacting with the AppGate API. The name is a portmanteau for `Controller` and `kolla`, translated from a discovered rune stone in Gothenburg in Sweden meaning: "to look at the controller".
 
-## Introcuction
+# Introcuction
 The AppGate API can be learned and discovered in different ways. One of the common ways is to use the developer tools in a web browser while browsing through the AppGate admin UI or use existing tools such as postman or prism. 
 
 However while the CRE team has been working with integrations and different use cases we continously build on a utility which eventually become the API Gateway, and we believe this can be useful for the community working woth AppGate outside the company. From an educational standpoint it allows you to:
@@ -13,8 +13,8 @@ However while the CRE team has been working with integrations and different use 
 * Gives you all the scripting flexibility to use the http rest API (JSON).
 * Simply administrate your AppGate through it.
 
-## Quick start
-### Get conkolla
+# Quick start
+## Get conkolla
 Conkolla (64bit) runs on macOS, Windows and linux. Download the binaries from the latest release:
 * [the latest release](https://github.com/Cyxtera/appgate-conkolla/releases/latest)
 
@@ -24,19 +24,19 @@ docker pull mar8x/conkolla:latest
 docker run -p 4433:4433 mar8x/conkolla:latest
 ```
 
-### Run conkolla
+## Run conkolla
 By default conkolla serves on `https://localhost:4433`. Different serving options are available, check with `conkolla --h` for more information.
 Keep the window in the background, it will reveal a good part of the interactions between client - conkolla - controller, and can be useful to follow the requests & responses, and payloads.
 
-#### Windows
+### Windows
 Open a cmd line or powershell, then type `conkolla.exe`. 
 
-#### Linux & macOS
+### Linux & macOS
 ```shell
 $ chmod +x conkolla
 $ ./conkolla
 ```
-#### Docker
+### Docker
 ```shell
 $ docker run -p 4433:4433 mar8x/conkolla:latest
 ```
@@ -77,7 +77,7 @@ bash-3.2$ ./conkolla
 }
 ```
 
-### Connect to a controller
+## Connect to a controller
 At this stage you will need to have a user with admin permission and privileges to read or write AppGate objects. For more information read:
 * [SDP Help > rest api](https://sdphelp.cyxtera.com/adminguide/v4.2/rest-apis.html)
 
@@ -85,7 +85,7 @@ Make sure you know where conkolla is serving:
 * look for "url" in start message, or
 * use the default `https://localhost:4433`
 
-#### Connect to a controller through web-based UI
+### Connect to a controller through web-based UI
 * Open a browser and point to the url (look for "url" in start message) 
 * Default is [https://localhost:4433/login/](https://localhost:4433/login/)
 * Allow the exception for the self signed cert when using TLS (recommended)
@@ -94,7 +94,7 @@ Fill the form, use or follow the defaults if unsure.
 
 ![login form](https://github.com/Cyxtera/appgate-conkolla/blob/gh-pages/login.png)
 
-#### Connect with an application, example curl
+### Connect with an application, example curl
 
 ```shell
 controllerURL=cc1.packnot.com
@@ -140,18 +140,20 @@ Response example:
   "message": "Successfully connected."
 ```
 
-### Crafting REST calls via Conkolla
-#### Rest calls to an AppGate controller
+## Crafting REST calls via Conkolla
+### Rest calls to an AppGate controller
 Rest calls torwards an AppGate controller are in the form of:
-* ```https://{URL}:{PORT}/admin/{RESOURCE|PATH}```
+* `https://{URL}:{PORT}/admin/{RESOURCE|PATH}`
+
 where as:
 * `URL` is the controllers URL
 * `PORT`: the port of the admin access, default is `444`
 * `RESOURCE|PATH`: the actual rest resource
+
 Example: 
 * `https://cc1.packnot.com:444/admin/stats/appliances`
 
-#### Rest calls via conkolla
+### Rest calls via conkolla
 In conkolla you reference a call to a connection, a connection which you previously logged into. Fro example for the same rest call as in the above example, you would use one of the following in the UI:
 * `https://localhost:4433/get/1/stats/appliances`
 * `https://localhost:4433/get/ctl9.packnot.comdev/stats/appliances`
