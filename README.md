@@ -201,7 +201,7 @@ Proxying API to a connected controller connection follows the scheme:
 | ------------- |:-------------:| -----|
 |`/agc/{connection}/conf`|GET POST| Display, change the connection settings for a controller.|
 |`/agc/{connection}/headers`|GET|Download a file containing the headers for upstream calls for this connection |
-|`/agc/{connection}/renewtoken`|GET| Renews the user and entitlement token for this connection. Only supported if no MFA is used and connection is set to 'Auto renew tokens' at login time.
+|`/agc/{connection}/renewtoken`|GET| Renews the user and entitlement token for this connection. Only supported if no MFA is used and connection is set to 'Auto renew tokens' at login time.|
 
 
 ### Operations specific
