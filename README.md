@@ -16,7 +16,7 @@ However while the CRE team has been working with integrations and different use 
 ## Quick start
 ### Get conkolla
 Conkolla runs as an executable and is available from macOS, Windows and linux. Download the binaries from the latest release:
-* https://github.com/Cyxtera/appgate-conkolla/releases/latest
+* [the latest release](https://github.com/Cyxtera/appgate-conkolla/releases/latest)
 
 Or for docker:
 ```shell
