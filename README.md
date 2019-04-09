@@ -78,13 +78,23 @@ bash-3.2$ ./conkolla
 ```
 
 ### Connect to a controller
-#### Web UI
+At this stage you will need to have a user with admin permiossion and the proper privileges to read or write AppGate objects. For more information read:
+* [SDP Help > rest api](https://sdphelp.cyxtera.com/adminguide/v4.2/rest-apis.html)
+
+Make sure you know where conkolla is serving:
+* look for "url" in start message, or
+* use the default `https://localhost:4433`
+
+#### Connect to a controller through web-based UI
 * Open a browser and point to the url (look for "url" in start message) 
 * Default is [https://localhost:4433/login/](https://localhost:4433/login/)
 * Allow the exception for the self signed cert when using TLS (recommended)
 
+Fill the form, use the defaults if unsure.
 
+![login form](https://github.com/Cyxtera/appgate-conkolla/blob/gh-pages/login.png)
 
+### Connect with an application, example curl
 
 
 
