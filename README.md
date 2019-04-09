@@ -36,9 +36,9 @@ Example output:
 ```shell
 bash-3.2$ ./conkolla
 {
-    "copyright": "Cyxtera Technologies  2019 (marx@cyxtera.com)",
+    "copyright": "Cyxtera Technologies  2019",
     "date": "2019-03-29",
-    "directory": "/Users/marc/VisualStudio/repo-init/conkolla/bin",
+    "directory": "/Users/tornrösa/execbin",
     "certPath": "templates/cert.pem",
     "keyPath": "templates/key.pem",
     "url": "https://localhost:4433",
@@ -53,7 +53,7 @@ bash-3.2$ ./conkolla
     "systemTimeZone": "Local"
 }
 {
-    "goat.local": [
+    "universal.impactor": [
         "127.0.0.1/8",
         "::1/128",
         "fe80::1/64",
