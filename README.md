@@ -170,7 +170,7 @@ Use also the [conkolla > help page](https://localhost:444/help.html) for your co
 # Conkolla internals
 ## Proxying scheme
 Proxying API to a connected controller connection follows the scheme:
-* `{https\|http}://host:port/{httpMethod}/{connection}/{rest} :: {BODY}`
+* `{https or http}://host:port/{httpMethod}/{connection}/{rest} :: {BODY}`
 
 `httpMethod`
 * GET, POST, PUT, DELETE
@@ -207,9 +207,9 @@ Proxying API to a connected controller connection follows the scheme:
 ### Operations specific
 | Path        | Method           | Description  |
 | ------------- |:-------------:| -----|
-|`/stats/{connection\|0}/{label}`|GET|Retrieves stats from connected controller(s). Displaying single stats: `/stats/{connection}/`, where connection is a reference for the connection. Display stats of all connected controllers: `/stats/0/`. Display the stats for a certain label: `/stats/0/{label}`.|
-|`/revoke/{0\|connection}`/{label}|GET|Revokes the tokens for the conneciton. Revoking single connection: `/revoke/{connection}/`, where connection is a reference for the connection. Revoke all connected controllers: `/revoke/0/`. Revoke for all controllers under a certain label: `/revoke/0/{label}`.|
-|`/forget/{0\|connection}/{label}`|GET|Revokes and removes the connection. Revoking & remove single connection: `/revoke/{connection}/`, where connection is a reference for the connection. Revoke & remove all connected controllers: `/revoke/0/`. Revoke & remove for all controllers under a certain label: `/revoke/0/{label}`.|
+|`/stats/{connection OR 0}/{label}`|GET|Retrieves stats from connected controller(s). Displaying single stats: `/stats/{connection}/`, where connection is a reference for the connection. Display stats of all connected controllers: `/stats/0/`. Display the stats for a certain label: `/stats/0/{label}`.|
+|`/revoke/{connection OR 0}`/{label}|GET|Revokes the tokens for the conneciton. Revoking single connection: `/revoke/{connection}/`, where connection is a reference for the connection. Revoke all connected controllers: `/revoke/0/`. Revoke for all controllers under a certain label: `/revoke/0/{label}`.|
+|`/forget/{connection OR 0}/{label}`|GET|Revokes and removes the connection. Revoking & remove single connection: `/revoke/{connection}/`, where connection is a reference for the connection. Revoke & remove all connected controllers: `/revoke/0/`. Revoke & remove for all controllers under a certain label: `/revoke/0/{label}`.|
 
 
 
