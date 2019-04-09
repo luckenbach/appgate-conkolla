@@ -14,14 +14,62 @@ However while the CRE team has been working with integrations and different use 
 * Simply administrate your AppGate through it.
 
 ## Quick start
+### Get conkolla
 Conkolla runs as an executable and is available from macOS, Windows and linux. Download the binaries from the latest release:
 * https://github.com/Cyxtera/appgate-conkolla/releases/latest
 
 Or for docker:
-```cmd
+```shell
 docker pull mar8x/conkolla:latest
 docker run -p 4433:4433 mar8x/conkolla:latest
 ```
+
+### Run conkolla
+#### Windows
+
+#### Linux & macOS
+```shell
+$ chmod +x conkolla
+$ ./conkolla
+```
+Example output:
+```shell
+bash-3.2$ ./conkolla
+{
+    "copyright": "Cyxtera Technologies  2019 (marx@cyxtera.com)",
+    "date": "2019-03-29",
+    "directory": "/Users/marc/VisualStudio/repo-init/conkolla/bin",
+    "certPath": "templates/cert.pem",
+    "keyPath": "templates/key.pem",
+    "url": "https://localhost:4433",
+    "tls": true,
+    "mode": "release",
+    "version": "4.4.5 (2d3c)",
+    "defaultAPIVersion": 9,
+    "operatingSystem": "darwin",
+    "memoryUsageMBbase2": 68.68773651123047,
+    "numberGoRoutines": 1,
+    "systemTime": "04-09-2019 10:49:27",
+    "systemTimeZone": "Local"
+}
+{
+    "goat.local": [
+        "127.0.0.1/8",
+        "::1/128",
+        "fe80::1/64",
+        "fe80::c38:9c81:e8e3:b333/64",
+        "172.28.100.8/16",
+        "fe80::8808:cdff:fe91:9ed/64",
+        "fe80::aede:48ff:fe00:1122/64",
+        "fe80::f9b5:38ea:e3f0:2c2b/64",
+        "fe80::bcaa:a14c:98a5:1e5f/64",
+        "fe80::63de:2e74:7ed5:e7e8/64",
+        "172.16.133.39/ffffff0f"
+    ]
+}
+```
+
+
 
 
 
