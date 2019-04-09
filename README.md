@@ -197,6 +197,7 @@ Proxying API to a connected controller connection follows the scheme:
 |`/apispec` | GET | Displays the on-board apispec (might be outdated, use the linked from the menu for reference).|
 
 ### Connection specific
+
 | Path        | Method           | Description  |
 | ------------- |:-------------:| -----|
 |`/agc/{connection}/conf`|GET POST| Display, change the connection settings for a controller.|
@@ -205,6 +206,7 @@ Proxying API to a connected controller connection follows the scheme:
 
 
 ### Operations specific
+
 | Path        | Method           | Description  |
 | ------------- |:-------------:| -----|
 |`/stats/{connection OR 0}/{label}`|GET|Retrieves stats from connected controller(s). Displaying single stats: `/stats/{connection}/`, where connection is a reference for the connection. Display stats of all connected controllers: `/stats/0/`. Display the stats for a certain label: `/stats/0/{label}`.|
