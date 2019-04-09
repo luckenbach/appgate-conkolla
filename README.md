@@ -221,16 +221,16 @@ Note that the form data and the JSON data render to the same attributes and some
 
 Here we highlight some of the more advanced controls
 
-| Param        | Value  hideToken         | Description  |
+| Param        | Value           | Description  |
 | ------------- |:-------------:| -----|
-|label|String:free text|Labels a connection with the given text. Allows you to connect many times to same AppGate Controller under different label. Any space will be replaced with `+`.|
+|label|String:text|Labels a connection with the given text. Allows you to connect many times to same AppGate Controller under different label. Labels allows you also to do bulk rest calls and help you sort and find connections. Any space in the will be replaced with `-`.|
 |otp|String:number|if the user account uses MFA, enter the next MFA code here. Supports only built-in MFA.|
 |acceptHeaderSuffix|`+json` or `+gpg`| Default +json, +gpg is used for downloading backup files. You can change it after login.|
 |apiVersion|Integer:number|specifies what AppGate API version to indicate in the upstream headers, usually defaults ok.You can change it after login. |
 |machineID|String:UUIDv4| A UUIDv4 string to identify conkolla as a client ID torwards AppGate Controller. None or faulty given, conkolla generates a random one.|
-|hideToken|String:`"yes"` or `""` (absent)| Allows to disable that the token for the AppGate connection is ever displayed or retrievable|
-|dumpAGResponse|String:`"yes"` or `""` (absent)| Conkolla will log the the request and response send to the upstream server. Good for debugging or curious people.|
-|autoTokenRenewal|String:`"yes"` or `""` (absent)| Conkolla will renew the token if it will expire in less than 5 minutes from now. ALso, you will be able to force renewal of tokens by the `/renewtoken`call (see below). Auto Renew does not work when using MFA.|
+|hideToken|String:`"yes"` or `""`| Allows to disable that the token for the AppGate connection is ever displayed or retrievable|
+|dumpAGResponse|String:`"yes"` or `""`| Conkolla will log the the request and response send to the upstream server. Good for debugging or curious people.|
+|autoTokenRenewal|String:`"yes"` or `""`| Conkolla will renew the token if it will expire in less than 5 minutes from now. ALso, you will be able to force renewal of tokens by the `/renewtoken`call (see below). Auto Renew does not work when using MFA.|
 
 
 
