@@ -96,7 +96,7 @@ Make sure you know where conkolla is serving:
 
 Fill the form, use or follow the defaults if unsure.
 
-![login form](https://github.com/Cyxtera/appgate-conkolla/blob/gh-pages/login.png)
+![login form](/login.png)
 
 ### Connect with an application, example curl
 
