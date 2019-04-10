@@ -59,16 +59,16 @@ Open a cmd line or powershell, then type `Conkolla.exe`.
 
 ### Linux & macOS
 ```shell
-$ chmod +x Conkolla
-$ ./Conkolla
+chmod +x Conkolla
+./Conkolla
 ```
 ### Docker
 ```shell
-$ docker run -p 4433:4433 mar8x/Conkolla:latest
+docker run -p 4433:4433 mar8x/Conkolla:latest
 ```
 *you will see a start message, something like this:*
 ```shell
-bash-3.2$ ./Conkolla
+./Conkolla
 {
     "copyright": "Cyxtera Technologies  2019",
     "date": "2019-03-29",
@@ -189,7 +189,7 @@ In Conkolla, a you always reference a connection; a connection which you previou
 
 From the command line:
 ```shell
-$ curl -k -X POST -H "Accept: application/json" https://localhost:4433/get/1/appliances
+curl -k -X POST -H "Accept: application/json" https://localhost:4433/get/1/appliances
 ```
 
 Use always method `POST` for the proxy call. The upstream HTTP method is included in the proxy call's path.
