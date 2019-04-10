@@ -171,7 +171,7 @@ Note the separation of the different calls:
 
 The first one is what the user will use to make calls, where the second is always initiated by Conkolla.
 
-In Conkolla you reference a call to a connection, a connection which you previously logged into. Fro example for the same rest call as in the above example, you would use one of the following in the UI:
+In Conkolla, a you always reference a connection; a connection which you previously logged into. Example, the same rest-call as above, you would specify it by referencing to connection `1` or `cc1.packnot.comdev`:
 * `https://localhost:4433/get/1/stats/appliances`
 * `https://localhost:4433/get/cc1.packnot.comdev/stats/appliances`
 
@@ -180,7 +180,7 @@ From the command line:
 $ curl -k -X POST -H "Accept: application/json" https://localhost:4433/get/1/appliances
 ```
 
-Use always method POST for the proxy call. The upstream HTTP method is included in the proxy call's path.
+Use always method `POST` for the proxy call. The upstream HTTP method is included in the proxy call's path.
 
 **Note: you need to drop the `/admin` part of the path.** Do not specify the `/admin` part in the path for the rest call. Conkolla adds it automatically on the upstream call.
 
@@ -227,7 +227,7 @@ Note that the form data and the JSON data render to the same attributes and some
 |otp|String:number|if the user account uses MFA, enter the next MFA code here. Supports only built-in MFA.|
 |acceptHeaderSuffix|`+json` or `+gpg`| Default +json, +gpg is used for downloading backup files. You can change it after login.|
 |apiVersion|Integer:number|specifies what AppGate API version to indicate in the upstream headers, usually defaults ok.You can change it after login. |
-|machineID|String:UUIDv4| A UUIDv4 string to identify Conkolla as a client ID torwards AppGate Controller. None or faulty given, Conkolla generates a random one.|
+|machineID|String:UUIDv4| A UUIDv4 string to identify Conkolla as a client ID towards AppGate Controller. None or faulty given, Conkolla generates a random one.|
 |hideToken|String:`"yes"` or `""`| Disables any display/retrieval of the token for the AppGate connection for security reasons.|
 |dumpAGResponse|String:`"yes"` or `""`| Conkolla will log the the request and response send to the upstream server. Good for debugging or curious people.|
 |autoTokenRenewal|String:`"yes"` or `""`| Conkolla will renew the token if it will expire in less than 5 minutes from now. Also, you will be able to force renewal of tokens by the `/renewtoken`call (see below). Auto Renew does not work when using MFA.|
