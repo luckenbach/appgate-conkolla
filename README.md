@@ -17,8 +17,7 @@ From an educational standpoint, Conkolla allows you to:
 The AppGate API can be learned and discovered in different ways. One of the common ways is to use the developer tools in a web browser while browsing through the AppGate admin UI, or use existing API Gateway or API Mocker such as postman or prism. 
 However, with Conkolla you get another option to choose from.
 
-
-# Quick start
+# Usage
 Conkolla can be seen as a proxy, sitting between the user and the AppGate Controller:
 ![login form](/arch.png)
 
@@ -27,16 +26,29 @@ The user will basically do the following steps when using Conkolla:
 2. Login to a AppGate Controller through Conkolla. 
 3. Use the the new connection in Conkolla to run rest calls against the connected Controller.
 
-
+# Quick start
 ## Get Conkolla
 Conkolla (64bit) runs on macOS, Windows and linux. Download the binaries:
 * [Conkolla latest release](https://github.com/Cyxtera/AppGate-Conkolla/releases/latest)
 
-Or for docker:
+### Docker
 ```shell
 docker pull mar8x/Conkolla:latest
 docker run -p 4433:4433 mar8x/Conkolla:latest
 ```
+
+### k8s
+See the [example deployment.yaml](https://github.com/Cyxtera/appgate-conkolla/tree/master/k8s):
+```shell
+# deploy
+kubectl apply -f deployment.yaml
+
+# pfwd to app
+kubectl --namespace ${NAMESPACE} port-forward \
+$(kubectl get pod --namespace ${NAMESPACE} -l app=conkolla -o template \
+--template "{{(index .items 0).metadata.name}}") 4433
+```
+
 
 ## Run Conkolla
 By default Conkolla serves on `https://localhost:4433`. Different serving options are available, check with `Conkolla --h` for more information.
