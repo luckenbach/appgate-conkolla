@@ -110,16 +110,14 @@ Make sure you know where Conkolla is serving:
 ### Connect with an application, example curl
 
 ```shell
-ControllerURL=cc1.packnot.com
-password=secretsauce
-apiVersion=9
-label=dev
-
 curl -s -H "Accept: application/json" -X POST \
      -kL https://localhost:4433/login --data \
-     "{\"username\":\"admin\",\"password\":\"${password}\",\
-      \"ControllerURL\":\"${ControllerURL}\",\"apiVersion\":${apiVersion},\
-      \"skipVerifySSL\":\"true\",\"label\":\"${label}\"}"
+     "{\"username\":\"admin\",\
+       \"password\":\"secret sauce\",\
+       \"ControllerURL\":\"cc1.packnot.com\",\
+       \"apiVersion\":9,\
+       \"skipVerifySSL\":\"true\",\
+       \"label\":\"staging\"}"
 ```
 
 Response example:
