@@ -117,7 +117,7 @@ curl -s -H "Accept: application/json" -X POST \
        \"ControllerURL\":\"cc1.packnot.com\",\
        \"apiVersion\":9,\
        \"skipVerifySSL\":\"true\",\
-       \"label\":\"staging\"}"
+       \"label\":\"dev\"}"
 ```
 
 Response example:
